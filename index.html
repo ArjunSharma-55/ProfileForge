@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0d12">
+  <title>ProfileForge — GitHub README Studio</title>
+  <meta name="description" content="Create polished GitHub profile READMEs with curated templates, live preview, GitHub profile analysis, and local drafts.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="ProfileForge home">
+        <span class="brand-mark"><svg viewBox="0 0 36 36" aria-hidden="true"><path d="M18 3 31 10.5v15L18 33 5 25.5v-15L18 3Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="m12 14 6-4 6 4v8l-6 4-6-4v-8Z" fill="currentColor" opacity=".9"/></svg></span>
+        <span>profile<span class="brand-light">forge</span><small>README STUDIO</small></span>
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="side-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-view="marketplace"><span class="nav-icon">▦</span> Template marketplace <span class="nav-count">30</span></button>
+        <button class="nav-item" data-view="studio"><span class="nav-icon">✳</span> README studio</button>
+        <button class="nav-item" data-view="analyzer"><span class="nav-icon">⌁</span> GitHub analyzer</button>
+        <button class="nav-item" data-view="drafts"><span class="nav-icon">▤</span> Saved drafts <span class="nav-count" id="draftCount">0</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-tip"><span class="tip-icon">✦</span><strong>Make your profile count.</strong><p>Build a README that tells your developer story in seconds.</p><button id="tipStart" class="text-button">Start creating <span>↗</span></button></div>
+        <div class="side-footer"><span class="status-dot"></span> Local-first workspace <span class="version">v3.0</span></div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Open navigation">☰</button>
+        <div class="breadcrumbs"><span>Workspace</span><span class="crumb-slash">/</span><strong id="breadcrumbCurrent">Template marketplace</strong></div>
+        <div class="top-actions">
+          <span class="privacy-chip"><span class="status-dot"></span> Your drafts stay on this device</span>
+          <button class="avatar-button" id="topCreate" title="Create a README">+</button>
+        </div>
+      </header>
+
+      <section class="view active" id="marketplaceView">
+        <div class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR GITHUB, YOUR STORY</div>
+            <h1>A profile that<br><span>opens doors.</span></h1>
+            <p class="hero-description">Build a standout GitHub README with curated layouts, live editing and your real project data. No design skills needed.</p>
+            <div class="hero-actions"><button class="btn btn-primary" id="browseTemplates">Explore templates <span>↗</span></button><button class="btn btn-secondary" id="heroManual">Create from scratch</button></div>
+            <div class="hero-proof"><div class="proof-avatars"><span>A</span><span>⌘</span><span>✦</span></div><span><strong>30 handcrafted layouts</strong><br>for every kind of developer</span></div>
+          </div>
+          <div class="hero-art" aria-label="Decorative preview of a README">
+            <div class="art-glow"></div><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+            <div class="floating-tag tag-top"><span class="mini-dot green"></span> README.md <span class="tag-check">✓</span></div>
+            <div class="mock-readme">
+              <div class="mock-window"><span></span><span></span><span></span><small>github.com / profile</small></div>
+              <div class="mock-profile"><div class="mock-avatar">AS</div><div><b>Arjun Sharma</b><small>Full-stack developer</small></div><span class="mock-follow">Follow</span></div>
+              <div class="mock-rule"></div><div class="mock-line wide"></div><div class="mock-line medium"></div>
+              <div class="mock-section">✦ &nbsp; What I'm building</div>
+              <div class="mock-projects"><div><i>◈</i><b>Orbit UI</b><small>Design systems, made clear.</small><em>TypeScript</em></div><div><i>⌘</i><b>Flowbase</b><small>Tools for thoughtful teams.</small><em>React</em></div></div>
+              <div class="mock-section">⌁ &nbsp; My toolkit</div><div class="mock-pills"><span>JavaScript</span><span>React</span><span>Node.js</span><span>Python</span></div>
+            </div>
+            <div class="floating-tag tag-bottom"><span class="sparkle">✦</span> Clean code. Clear story.</div>
+          </div>
+        </div>
+
+        <div class="section-heading" id="templatesAnchor"><div><div class="eyebrow muted-eyebrow">THE COLLECTION</div><h2>Find your format.</h2><p>Choose a starting point. Make it yours.</p></div><div class="collection-count"><strong>30</strong><span>templates</span></div></div>
+        <div class="market-toolbar">
+          <label class="search-box"><span>⌕</span><input id="templateSearch" type="search" placeholder="Search templates, styles, roles..." aria-label="Search templates"><kbd>⌘ K</kbd></label>
+          <div class="filter-wrap"><label class="sr-only" for="categoryFilter">Category</label><select id="categoryFilter"><option value="all">All categories</option></select></div>
+          <div class="filter-wrap"><label class="sr-only" for="sortTemplates">Sort templates</label><select id="sortTemplates"><option value="featured">Featured first</option><option value="az">Name: A–Z</option><option value="category">Category</option></select></div>
+        </div>
+        <div class="category-pills" id="categoryPills"></div>
+        <div class="template-grid" id="templateGrid" aria-live="polite"></div>
+        <div class="market-footer"><span id="resultsText">Showing 30 templates</span><span>More than a README. Your first impression.</span></div>
+      </section>
+
+      <section class="view" id="studioView">
+        <div class="page-heading"><div><div class="eyebrow muted-eyebrow">CREATION WORKSPACE</div><h1>README <span>studio.</span></h1><p>Shape your story. See every change. Export when you're ready.</p></div><div class="heading-actions"><button class="btn btn-secondary btn-small" id="newDraftBtn">New draft</button><button class="btn btn-primary btn-small" id="saveDraftBtn">Save draft</button></div></div>
+        <div class="studio-layout">
+          <section class="editor-panel panel">
+            <div class="panel-heading"><div><span class="panel-kicker">01 / YOUR DETAILS</span><h3>Make it personal</h3></div><span class="step-badge">EDIT</span></div>
+            <div class="mode-switch" role="group" aria-label="Creation mode"><button class="mode-btn active" data-mode="manual">Manual details</button><button class="mode-btn" data-mode="github">Fetch GitHub</button></div>
+            <form id="profileForm">
+              <div class="field-row"><label for="displayName">Display name</label><input id="displayName" maxlength="80" placeholder="e.g. Alex Morgan"></div>
+              <div class="field-row"><label for="role">Role / headline</label><input id="role" maxlength="120" placeholder="e.g. Computer Science Student"></div>
+              <div class="field-row"><label for="intro">About you</label><textarea id="intro" rows="3" maxlength="700" placeholder="What are you learning, building, or curious about?"></textarea><div class="field-hint"><span>Keep it human and specific.</span><span id="introCount">0 / 700</span></div></div>
+              <div class="field-row"><label for="githubUsername">GitHub username <span class="optional">optional</span></label><div class="inline-input"><span class="input-prefix">@</span><input id="githubUsername" placeholder="username" maxlength="39" autocomplete="off"><button type="button" class="btn btn-secondary btn-small" id="analyzeBtn">Fetch</button></div><div class="field-hint">Only public profile and repository data is fetched.</div></div>
+              <div class="field-row"><label for="location">Location <span class="optional">optional</span></label><input id="location" maxlength="100" placeholder="e.g. Jaipur, India"></div>
+              <div class="field-row"><label for="website">Website / portfolio <span class="optional">optional</span></label><input id="website" type="url" placeholder="https://your-site.dev"></div>
+              <div class="field-row"><label for="linkedin">LinkedIn URL <span class="optional">optional</span></label><input id="linkedin" type="url" placeholder="https://linkedin.com/in/you"></div>
+              <div class="field-row"><label for="skills">Skills / technologies</label><input id="skills" placeholder="JavaScript, Python, HTML, CSS"><div class="field-hint">Separate skills with commas.</div></div>
+              <div class="field-row"><label for="contact">Public contact email <span class="optional">optional</span></label><input id="contact" type="email" placeholder="you@example.com"><div class="field-hint warning-hint">Only include an email if you're comfortable making it public.</div></div>
+            </form>
+            <div class="panel-divider"></div>
+            <div class="panel-heading compact"><div><span class="panel-kicker">02 / PROJECTS</span><h3>Show your work</h3></div><button class="text-button" id="selectTopRepos">Select top repos</button></div>
+            <div class="repo-toolbar"><span id="repoSummary">No repositories loaded</span><input id="repoSearch" type="search" placeholder="Filter repositories" aria-label="Filter repositories"></div>
+            <div class="repo-list" id="repoList"><div class="empty-state small-empty"><span>⌁</span><p>Fetch a GitHub profile to load public repositories, or add project links in your intro.</p></div></div>
+            <div class="field-row custom-project"><label for="extraProjects">Additional projects <span class="optional">optional</span></label><textarea id="extraProjects" rows="2" placeholder="Project name | short description | https://github.com/... (one per line)"></textarea><div class="field-hint">Useful for projects not listed on GitHub.</div></div>
+            <div class="panel-divider"></div>
+            <div class="panel-heading compact"><div><span class="panel-kicker">03 / LAYOUT</span><h3>Choose your template</h3></div><button class="text-button" id="changeTemplateBtn">Browse all ↗</button></div>
+            <div class="selected-template" id="selectedTemplateMini"></div>
+          </section>
+
+          <section class="preview-column">
+            <div class="panel preview-panel">
+              <div class="preview-top"><div><span class="panel-kicker">LIVE CANVAS</span><h3>Your README, taking shape</h3></div><div class="preview-actions"><button class="icon-button active" id="previewModeBtn" title="Show rendered preview">◉</button><button class="icon-button" id="markdownModeBtn" title="Edit raw Markdown">⌘</button><button class="icon-button" id="copyMarkdownBtn" title="Copy Markdown">⧉</button></div></div>
+              <div class="preview-meta"><span class="github-mark">●</span><span id="previewRepoName">username / username</span><span class="preview-branch">main</span><span class="preview-live"><span class="status-dot"></span> LIVE</span></div>
+              <div class="readme-preview" id="readmePreview" aria-live="polite"></div>
+              <textarea class="markdown-editor hidden" id="markdownEditor" spellcheck="false" aria-label="Markdown source"></textarea>
+              <div class="preview-bottom"><span id="previewStatus">Preview updates as you type</span><span id="wordCount">0 words</span></div>
+            </div>
+            <div class="score-panel panel"><div class="score-ring" id="scoreRing"><strong id="scoreValue">0</strong><small>/100</small></div><div class="score-copy"><span class="panel-kicker">README QUALITY CHECK</span><h3 id="scoreTitle">Your story starts here.</h3><p id="scoreDescription">Add a few details and projects to see practical suggestions.</p><div class="score-progress"><span id="scoreProgress"></span></div></div><button class="btn btn-secondary btn-small" id="improveBtn">Review checklist</button></div>
+            <div class="export-bar"><div><strong>Looks like you?</strong><span>Export your Markdown and add it to your profile repository.</span></div><div class="export-actions"><button class="btn btn-secondary" id="copyBottomBtn">Copy Markdown</button><button class="btn btn-primary" id="downloadBtn">Download README.md <span>↓</span></button></div></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="view" id="analyzerView">
+        <div class="page-heading"><div><div class="eyebrow muted-eyebrow">PUBLIC PROFILE INSIGHTS</div><h1>GitHub <span>analyzer.</span></h1><p>Turn public profile and repository data into a practical improvement plan.</p></div></div>
+        <div class="analyzer-search panel"><div><h3>Start with a username</h3><p>No sign-in required. Public GitHub REST API only.</p></div><div class="inline-input analyzer-input"><span class="input-prefix">@</span><input id="analyzerUsername" placeholder="GitHub username" maxlength="39"><button class="btn btn-primary" id="runAnalyzerBtn">Analyze profile ↗</button></div></div>
+        <div id="analyzerResults"><div class="empty-state"><div class="empty-illustration">⌁</div><h3>Your profile report lives here.</h3><p>Enter a public GitHub username to load real profile and repository data.</p></div></div>
+      </section>
+
+      <section class="view" id="draftsView">
+        <div class="page-heading"><div><div class="eyebrow muted-eyebrow">YOUR LOCAL LIBRARY</div><h1>Saved <span>drafts.</span></h1><p>Drafts are stored in this browser on this device. Export them to move between devices.</p></div><div class="heading-actions"><button class="btn btn-secondary btn-small" id="importDraftBtn">Import JSON</button><button class="btn btn-primary btn-small" id="draftsNewBtn">New draft</button><input type="file" id="importFile" accept=".json,application/json" hidden></div></div>
+        <div id="draftsList" class="drafts-grid"></div>
+      </section>
+
+      <footer class="app-footer"><span>ProfileForge <span class="footer-dot">•</span> Built for your next chapter.</span><span>Local-first · Open-source friendly · No account required</span></footer>
+    </main>
+  </div>
+  <div class="toast-region" id="toastRegion" role="status" aria-live="polite"></div>
+  <dialog id="templateDialog" class="template-dialog"><div class="dialog-head"><div><span class="panel-kicker">THE COLLECTION</span><h2>Choose your starting point</h2></div><button class="icon-button" id="closeTemplateDialog" aria-label="Close">×</button></div><div class="dialog-search"><input id="dialogTemplateSearch" type="search" placeholder="Search all 30 templates..."></div><div class="dialog-template-grid" id="dialogTemplateGrid"></div></dialog>
+  <dialog id="checklistDialog" class="checklist-dialog"><div class="dialog-head"><div><span class="panel-kicker">QUALITY REVIEW</span><h2>Make your README stronger</h2></div><button class="icon-button" id="closeChecklistDialog" aria-label="Close">×</button></div><div id="checklistContent"></div></dialog>
+  <script src="script.js"></script>
+</body>
+</html>
