@@ -1,85 +1,86 @@
-# ProfileForge — README Studio & Template Marketplace
+# ⚡ ProfileForge
 
-A responsive, local-first GitHub profile README builder. Built with plain HTML, CSS and JavaScript — no framework, build step, account, or required API key.
+### Build. Customize. Stand Out.
 
-## Features
+A premium GitHub Profile README Generator featuring **30 unique templates**, live Markdown preview, GitHub profile integration, profile quality scoring, saved drafts, and Markdown export.
 
-- **30 distinct template configurations** across six categories. Each template has its own heading treatment, category, color palette, description and Markdown structure.
-- **Three creation paths:** use your own public GitHub profile, create a README for someone else using their public username, or enter details manually.
-- **Public GitHub data:** fetches profile data and up to 100 public repositories using the GitHub REST API. No login/token is requested.
-- **Repository selection:** filter repositories and choose which ones to include in the generated README.
-- **Live Markdown preview/editor:** switch between a rendered preview and editable Markdown source. Manual edits are preserved until you change template or edit profile fields.
-- **Quality checklist:** transparent content checks; not a hiring prediction.
-- **Local drafts:** save multiple drafts in this browser, reopen/delete them, export a draft as JSON and import it on another device.
-- **Export:** copy Markdown or download a `.md` file.
-- **Responsive marketplace UI:** search, category filters, sorting, favorites and template selection.
-- **No fake AI or publishing:** AI generation and direct GitHub publishing are not included. This static app does not send commits to GitHub.
+<div align="center">
 
-## Run locally
+## 🚀 [OPEN PROFILEFORGE — LIVE DEMO](https://arjunsharma-55.github.io/ProfileForge/)
 
-1. Download and extract the ZIP.
-2. Open the folder in VS Code.
-3. Open `index.html` in a browser. Recommended: use the VS Code **Live Server** extension.
-4. Internet access is needed for live GitHub API requests and optional Google Fonts. The manual builder and Markdown export can work offline after the files are available.
+[![Live Demo](https://img.shields.io/badge/LIVE_DEMO-7C3AED?style=for-the-badge&logo=github)](https://arjunsharma-55.github.io/ProfileForge/)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-No `npm install` or build step is required.
+</div>
 
-## Deploy free
+---
 
-### GitHub Pages
-1. Create a repository and upload `index.html`, `style.css`, `script.js`, and `README.md` to its root.
-2. Open **Settings → Pages**.
-3. Choose deploy from branch, select `main` and `/ (root)`, then save.
-4. Open the URL GitHub Pages provides.
+## ✨ Features
 
-### Vercel (static)
-1. Import the repository in Vercel.
-2. Select framework preset **Other**.
-3. Leave build command empty; set output directory to `.`.
-4. Deploy.
+- 🎨 **30 Unique Templates** — Explore different styles and layouts.
+- 👀 **Live Markdown Preview** — Preview README content while editing.
+- 🐙 **GitHub Integration** — Look up public profile information.
+- ✍️ **Custom README Builder** — Create READMEs for yourself or others.
+- 📊 **Quality Scoring** — Get feedback on your README.
+- 💾 **Saved Drafts** — Keep drafts in your browser.
+- 📥 **Markdown Export** — Download your README as a `.md` file.
+- 📱 **Responsive Design** — Use it across different screen sizes.
 
-The static site does not require server environment variables.
+## 🌐 Live Website
 
-## GitHub API behavior and limits
+**Try it now:** https://arjunsharma-55.github.io/ProfileForge/
 
-The app calls:
-- `GET https://api.github.com/users/{username}`
-- `GET https://api.github.com/users/{username}/repos?type=owner&sort=updated&per_page=100`
+## 🛠️ Tech Stack
 
-Only public profile/repository information is used. The UI handles invalid usernames, missing profiles, API rate limits, and network failures. Unauthenticated GitHub API requests have a limited per-IP quota (commonly 60 requests/hour; GitHub may change limits and shared IPs can affect usage). This app fetches at most 100 repositories and does not paginate beyond that limit.
+- HTML5
+- CSS3
+- Vanilla JavaScript
+- GitHub API
+- Markdown
 
-Language analytics count repositories by their primary language; this is not a lines-of-code calculation. A profile's public repository count can include repositories not present in the fetched first 100.
+## 💻 Run Locally
 
-## Data and privacy
+Clone the repository:
 
-- Drafts and favorite template IDs are stored in the browser's `localStorage` on this device.
-- No user account, analytics tracker, or server database is configured.
-- Do not enter secrets, passwords, access tokens, private contact details, or sensitive information into a public README.
-- A public email address will be visible to anyone who can read the README.
-- GitHub usernames and public profile data are sent to `api.github.com` to fetch requested public information.
-- The app uses `textContent`/HTML escaping for user-entered text in generated interface areas. Markdown preview is a deliberately limited renderer, not full GitHub Markdown parity. Links and images are limited to HTTP(S) URLs in the renderer.
+```bash
+git clone https://github.com/ArjunSharma-55/ProfileForge.git
+```
 
-## What's intentionally not included
+Open the folder:
 
-- **AI bio generation:** not implemented in this static build. To add it, configure a provider and a server-side endpoint/serverless function. Keep provider keys in server-side environment variables, never in `script.js` or any browser-delivered file. AI provider use may cost money.
-- **Direct GitHub publishing:** not implemented. Download the README, review it, then upload it to the profile repository yourself. Automated publishing requires GitHub OAuth/app authorization and a secure backend with appropriate permissions.
-- **Private repository access:** not requested or supported.
-- **Cloud-synced accounts / shared marketplace:** local drafts only. These need a backend and database.
-- **Perfect GitHub rendering:** preview is approximate; verify the downloaded Markdown on GitHub before relying on it.
+```bash
+cd ProfileForge
+```
 
-## GitHub profile README setup
+Open `index.html` in your browser, or run it through Visual Studio Code using Live Server.
 
-For a profile README, create a public repository whose name exactly matches the GitHub username. Put the downloaded file at `README.md` in the repository root, then commit and push it.
+## 👨‍💻 Developer
 
-## Troubleshooting
+**Arjun Sharma**  
+B.Tech Computer Science / IT Student | Aspiring Software Engineer
 
-- **No profile loads:** check the username and internet connection; wait and retry if rate limited.
-- **Preview looks different on GitHub:** GitHub has its own Markdown rules and strips/restricts some HTML/CSS. The downloaded Markdown is the source of truth; verify it on GitHub.
-- **Clipboard is blocked:** use the Download README button.
-- **Draft not saving:** browser storage may be disabled or full; export drafts as JSON regularly.
-- **Fonts look different:** Google Fonts is optional; system fonts are used as fallback.
+- GitHub: [@ArjunSharma-55](https://github.com/ArjunSharma-55)
+- Project Repository: [ProfileForge](https://github.com/ArjunSharma-55/ProfileForge)
+- Live Website: [Launch ProfileForge](https://arjunsharma-55.github.io/ProfileForge/)
 
+## 🔐 Security
 
-## Template design note
+Never publish passwords, access tokens, API secrets, or other sensitive information in a README. Review generated content before publishing it publicly.
 
-The 30 templates use separate Markdown structures, section ordering, headings, project presentation styles, and optional GitHub badges/stats—not just different colors. Pick a template, then switch between Preview and Markdown to inspect or edit its generated content. Editing the Markdown intentionally switches to a custom document so your edits are preserved until you choose another template. The in-app preview is a lightweight Markdown renderer, not a pixel-perfect replica of GitHub's renderer.
+## 📄 License
+
+Refer to the repository's `LICENSE` file for the applicable license terms.
+
+---
+
+<div align="center">
+
+### ⚡ Your GitHub Profile. Your Style. Your Identity.
+
+**[🚀 LAUNCH PROFILEFORGE](https://arjunsharma-55.github.io/ProfileForge/)**
+
+⭐ If you find this project useful, consider starring the repository!
+
+</div>
